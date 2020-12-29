@@ -1,18 +1,8 @@
 'use strict';
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
-   return queryInterface.bulkInsert(
+  up: async (queryInterface, Sequelize) => {
+   const categories = await  queryInterface.bulkInsert(
      "Category",
      [
        {
@@ -28,8 +18,26 @@ module.exports = {
          name: "Other",
        },
      ],
-     {}
+     { returning: true }
    );
+
+    const items = await queryInterface.bulkInsert(
+      "Item",
+      [
+        {
+          name: 'Teal Cup Cozy',
+          description: "handmade cup cozie that fits perfectly on any everyday mug. Made with Lion Brand yarn and a heart shaped button to keep your cozy in place. recommend hand washing fabric.",
+          price: 5.00,
+          rating: 0,
+          quantity: 10,
+          url: ''
+
+
+        },
+       
+      ],
+      { returning: true }
+    );
   },
 
   down: (queryInterface, Sequelize) => {
