@@ -25,7 +25,7 @@ module.exports = {
       "Item",
       [
         {
-          name: 'Teal Cup Cozy',
+          name: "Teal Cup Cozy",
           description: "handmade cup cozie that fits perfectly on any everyday mug. Made with Lion Brand yarn and a heart shaped button to keep your cozy in place. recommend hand washing fabric.",
           price: 5.00,
           rating: 0,
