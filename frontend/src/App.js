@@ -5,9 +5,8 @@ import SignupFormPage from "./components/SignupFormPage";
 // import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-//pics
-// import Logo from './pics/logos/logo1.png'
-import Logo2 from './pics/logos/logo2.jpg'
+//componenets
+
 
 function App() {
   const dispatch = useDispatch();
@@ -17,10 +16,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className='homeBox'>
-      <div className='logoBox'>
-        <img className='logo' src={Logo2} ></img>
-      </div>
+    <div className="homeBox">
       <div>
         <Navigation isLoaded={isLoaded} />
       </div>
