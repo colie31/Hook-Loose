@@ -1,1 +1,15 @@
 /* TODO Add site wide styles */
+.homeBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.logoBox {
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.logo {
+    height: 300px;
+    width: 400px;
+}
