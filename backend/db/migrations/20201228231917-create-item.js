@@ -1,20 +1,24 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Items', {
+    return queryInterface.createTable("Items", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+      },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       description: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: false,
       },
       price: {
         type: Sequelize.DECIMAL(20, 2),
-        allowNull: false
+        allowNull: false,
       },
       rating: {
         type: Sequelize.DECIMAL(2, 1),
@@ -26,20 +30,24 @@ module.exports = {
         allowNull: false,
       },
       url: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       categoryId: {
         type: Sequelize.INTEGER,
-        references: { model: 'Categories' }
+        references: { model: "Categories" },
+      },
+      amountSold: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
