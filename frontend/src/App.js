@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 //componenets
 import HomePageInfo from "./components/HomePageInfo"
+import ItemsPage from './components/ItemsPage'
 
 
 function App() {
@@ -24,12 +25,16 @@ function App() {
       <div>
         {isLoaded && (
           <Switch>
-            <Route path="/signup">
+            <Route exact path="/signup">
               <SignupFormPage />
+            </Route>
+            <Route exact path="/items">
+              <ItemsPage />
             </Route>
             <Route exact path="/">
               <HomePageInfo />
             </Route>
+            <Route>{"404 page not found"}</Route>
           </Switch>
         )}
       </div>

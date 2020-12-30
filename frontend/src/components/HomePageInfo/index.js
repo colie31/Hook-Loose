@@ -1,9 +1,12 @@
-import React from 'react'
-
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+//css
+import './HomePageInfo.css'
 
 const HomePageInfo = () => {
      return (
-       <div>
+       <div className="homeBottom">
+        <div>
          <h1>What is Hook Loose?</h1>
          <div>
            <h2>Unique Creations</h2>
@@ -26,6 +29,10 @@ const HomePageInfo = () => {
              way.
            </h3>
          </div>
+        </div>
+        <div>
+
+        </div>
        </div>
      );
 }

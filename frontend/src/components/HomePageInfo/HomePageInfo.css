@@ -1,0 +1,10 @@
+.homeBottom {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../../pics/backGroundImages/image3.jpg');
+    background-size: cover;
+    image-orientation: 90deg;
+    margin: 0;
+    padding: 0;
+
+}
