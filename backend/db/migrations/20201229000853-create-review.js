@@ -17,7 +17,7 @@ module.exports = {
         references: { model: 'Items' }
       },
       comment: {
-        type: Sequelize.STRING(25),
+        type: Sequelize.STRING,
         allowNull:false
       },
       userRating: {
