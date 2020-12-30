@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 //componenets
 import HomePageInfo from "./components/HomePageInfo"
 import ItemsPage from './components/ItemsPage'
+import SingleItem from './components/SingleItem'
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
           <Switch>
             <Route exact path="/signup">
               <SignupFormPage />
+            </Route>
+            <Route exact path="/items/:id">
+              <SingleItem />
             </Route>
             <Route exact path="/items">
               <ItemsPage />

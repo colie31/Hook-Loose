@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./LoginForm.css";
 import { useHistory } from 'react-router-dom'
 
@@ -11,6 +11,8 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+  const loggedInUser = useSelector((state) => state.session.user);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -19,7 +21,8 @@ function LoginForm() {
         if (res.data && res.data.errors) setErrors(res.data.errors);
       }
     );
-    history.push('/items');
+    //somethings wrong here
+    if(loggedInUser) history.push('/items');
   };
 
   return (
