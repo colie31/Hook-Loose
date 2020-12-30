@@ -58,7 +58,6 @@ module.exports = (sequelize, DataTypes) => {
 
     User.belongsToMany(models.Item, columnMapping);
     User.hasMany(models.Review, { foreignKey: 'userId' })
-    User.belongsTo(models.UserItem, { foreignKey: 'userId' })
   };
   
   User.prototype.toSafeObject = function () {

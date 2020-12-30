@@ -7,8 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     totalAmount: DataTypes.DECIMAL
   }, {});
   UserItem.associate = function(models) {
-    UserItem.belongsTo(models.User, { foreignKey: 'userId' });
-    UserItem.hasMany(models.Item, { foreignKey: 'itemId' })
+    
   };
   return UserItem;
 };
