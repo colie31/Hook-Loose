@@ -12,7 +12,6 @@ const removeUser = () => ({
   type: REMOVE_USER
 });
 
-export const createUser = (user) =>
 
 export const login = ({ credential, password }) => async (dispatch) => {
   const res = await fetch('/api/session', {

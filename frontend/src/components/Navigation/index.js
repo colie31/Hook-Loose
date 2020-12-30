@@ -38,7 +38,6 @@ function Navigation({ isLoaded }){
         {isLoaded && sessionLinks}
       </li>
     </ul>
-    {!sessionUser && bottomForm}
     </>
   );
 }
