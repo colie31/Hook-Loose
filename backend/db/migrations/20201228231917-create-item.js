@@ -13,11 +13,11 @@ module.exports = {
         allowNull: false
       },
       price: {
-        type: Sequelize.DECIMAL(4, 2),
+        type: Sequelize.DECIMAL(20, 2),
         allowNull: false
       },
       rating: {
-        type: Sequelize.DECIMAL(1, 1),
+        type: Sequelize.DECIMAL(2, 1),
         allowNull: false,
         defaultValue: 0,
       },
@@ -26,11 +26,11 @@ module.exports = {
         allowNull: false,
       },
       url: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
-      favorite: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
+      categoryId: {
+        type: Sequelize.INTEGER,
+        references: { model: 'Categories' }
       },
       createdAt: {
         allowNull: false,

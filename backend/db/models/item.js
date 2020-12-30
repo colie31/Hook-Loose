@@ -6,10 +6,18 @@ module.exports = (sequelize, DataTypes) => {
     rating: DataTypes.DECIMAL,
     quantity: DataTypes.INTEGER,
     url: DataTypes.STRING,
-    favorite: DataTypes.BOOLEAN
+    categoryId: DataTypes.INTEGER,
   }, {});
   Item.associate = function(models) {
-    // associations can be defined here
+    const columnMapping2 = {
+      through: "UserItem",
+      otherKey: "userId",
+      foreignKey: "itemId"
+    }
+
+    Item.belongsTo(models.Category, { foreignKey: 'categoryId' });
+    Item.belongsToMany(models.User, columnMapping2);
+    Item.hasMany(models.Review, { foreignKey: 'itemId' });
   };
   return Item;
 };
