@@ -4,28 +4,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react'
 //import fetch
 import { fetch } from '../../store/csrf'
+//thunk action
+import { fetchInventory } from '../../store/item';
+import './ItemsPage.css'
 
 
 //need to fetch inventory from database
-//dispatch fetch( w/ thunk function)
+//dispatch thunk function
 //need to display each item w/ database
 //remember buttons per item: view, add to cart
     
 
 const ItemsPage = () => {
-
+    const dispatch = useDispatch();
     const loggedInUser = useSelector(state => {
         return state.session.user;
     })
-
-
-        const [inventory, setInventory] = useState([])
-
-        useEffect(async () => {
-            const response = await fetch('api/items');
-            console.log(response.data[0])
-            setInventory(response.data)
-        }, []);
+    const inventory = useSelector(state => state.inventory)
 
         
         //defensive coding
@@ -41,8 +36,9 @@ const ItemsPage = () => {
                           <div key={item.id}>
                             <div>
                               <img
+                                className='images'
                                 src={item.url}
-                                style={{ height: 200, width: 220 }}
+                                style={{ height: 200, width: 220, objectFit: 'contain' }}
                               />
                             </div>
                             <div>{item.name}</div>

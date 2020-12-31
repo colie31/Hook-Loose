@@ -10,13 +10,16 @@ import HomePageInfo from "./components/HomePageInfo"
 import ItemsPage from './components/ItemsPage'
 import SingleItem from './components/SingleItem'
 
+import { fetchInventory } from './store/item'
+
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser()).then(()=> {dispatch(fetchInventory())}).then(() => setIsLoaded(true));
   }, [dispatch]);
+   
 
   return (
     <div className="homeBox">

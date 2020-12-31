@@ -12,27 +12,35 @@ import { fetch } from "../../store/csrf";
 
 const SingleItem = () => {
   const urlInformation = useParams();
-  console.log(urlInformation);
+  const itemId = parseInt(urlInformation.id);
 
   const loggedInUser = useSelector((state) => {
     return state.session.user;
-  });
+  })
 
-  const [item, setItem] = useState(null);
-
-  useEffect(async () => {
-    const response = await fetch("/api/items");
-    const allItems = response.data;
-    const itemId = parseInt(urlInformation.id);
-    const theItem = allItems.find((anItem)=> {
-        return anItem.id === itemId
+  const item = useSelector(state => {
+    const allItems = state.inventory;
+    return allItems.find((anItem)=> {
+        console.log(anItem.id)
+        return anItem.id === itemId;
     })
-    setItem(theItem);
-  }, []);
+  });
+  console.log(item)
+
+  // const [item, setItem] = useState(null);
+
+  // useEffect(async () => {
+  //   const response = await fetch("/api/items");
+  //   const allItems = response.data;
+  //   const itemId = parseInt(urlInformation.id);
+  //   const theItem = allItems.find((anItem)=> {
+  //       return anItem.id === itemId
+  //   })
+  //   setItem(theItem);
+  // }, []);
 
   //defensive coding
   if (!loggedInUser) return null;
-  console.log(item)
 
   return (
     <>
