@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Switch, Redirect } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 // import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from "./store/session";
@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import HomePageInfo from "./components/HomePageInfo"
 import ItemsPage from './components/ItemsPage'
 import SingleItem from './components/SingleItem'
+import Cart from './components/Cart'
 
 import { fetchInventory } from './store/item'
 
@@ -19,6 +20,10 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(()=> {dispatch(fetchInventory())}).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  const loggedInUser = useSelector(state => {
+    return state.session.user
+  })
    
 
   return (
@@ -38,7 +43,11 @@ function App() {
             <Route exact path="/items">
               <ItemsPage />
             </Route>
+            <Route exact path="/cart">
+              <Cart />
+            </Route>
             <Route exact path="/">
+              {loggedInUser && <Redirect to='/items' />}
               <HomePageInfo />
             </Route>
             <Route>{"404 page not found"}</Route>

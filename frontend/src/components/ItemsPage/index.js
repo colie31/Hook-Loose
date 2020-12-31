@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react'
-//import fetch
-import { fetch } from '../../store/csrf'
-//thunk action
-import { fetchInventory } from '../../store/item';
+//css
 import './ItemsPage.css'
+//action
+import { addItem } from '../../store/cart'
 
 
 //need to fetch inventory from database
@@ -36,6 +34,7 @@ const ItemsPage = () => {
                           <div key={item.id}>
                             <div>
                               <img
+                                alt=''
                                 className='images'
                                 src={item.url}
                                 style={{ height: 200, width: 220, objectFit: 'contain' }}
@@ -47,7 +46,7 @@ const ItemsPage = () => {
                             <Link to={`/items/${item.id}`}>
                               <button>View Item</button>
                             </Link>
-                              <button onClick={(e) => {}}>Add To Cart</button>
+                              <button onClick={(e) => {dispatch(addItem(item))}}>Add To Cart</button>
                             </div>
                           </div>
                         );

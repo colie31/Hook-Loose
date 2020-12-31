@@ -21,7 +21,6 @@ function LoginForm() {
         if (res.data && res.data.errors) setErrors(res.data.errors);
       }
     );
-    //somethings wrong here
     if(loggedInUser) history.push('/items');
   };
 

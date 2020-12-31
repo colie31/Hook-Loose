@@ -18,6 +18,7 @@ const setInventory = (inventory) => {
 }
 
 //thunks
+// get all of inventory
 export const fetchInventory = () => async(dispatch) => {
     const response = await fetch('/api/items');
     dispatch(
@@ -25,6 +26,7 @@ export const fetchInventory = () => async(dispatch) => {
     )
 }
 
+//inventory reducer
 const initialState = []
 
 const inventoryReducer = (state = initialState, action) => {

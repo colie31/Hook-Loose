@@ -1,9 +1,6 @@
 import React from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-//import fetch
-import { fetch } from "../../store/csrf";
 import BeautyStars from "beauty-stars";
 //css
 import './SingleItem.css'
