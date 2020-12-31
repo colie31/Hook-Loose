@@ -1,0 +1,18 @@
+.image {
+    height: 200px;
+    width: 250px;
+    object-fit: scale-down;
+}
+
+.descriptionBox {
+    border: solid purple 2px;
+}
+
+.container {
+    margin: auto;
+    width: 400px;
+}
+
+/* .imageContainer {
+    padding-left: 0px;
+} */
