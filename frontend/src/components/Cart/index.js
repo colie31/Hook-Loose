@@ -37,7 +37,7 @@ const Cart = () => {
                     />
                   </Link>
                 </li>
-                <li>Price: {cartItem.item.price}</li>
+                <li>Price: ${cartItem.item.price}</li>
                 <button
                 onClick={
                     (e) => {dispatch(cartAction.addItem(cartItem.item))}
@@ -47,9 +47,17 @@ const Cart = () => {
                 onClick={
                     (e) => {dispatch(cartAction.removeItem(cartItem.item))}
                 }>-</button>
+                <button
+                onClick={
+                    (e) => {dispatch(cartAction.deleteItem(cartItem.item))}
+                }>Remove All</button>
               </ul>
             );
         })}
+        </div>
+        <div>
+        <button></button>
+        <button></button>
         </div>
         </>
     )
