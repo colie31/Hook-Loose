@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
+import empty from '../../store/cart'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function ProfileButton({ user }) {
   const logout = async (e) => {
     e.preventDefault();
     await dispatch(sessionActions.logout())
+    dispatch(empty)
     history.push('/')
   };
 

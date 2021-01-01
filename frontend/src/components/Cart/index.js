@@ -18,16 +18,22 @@ const Cart = () => {
         return accumulator + value.count
     }, 0);
 
+     let costTotal = Object.values(cart).reduce((accumulator, value) => {
+       return accumulator + (Number(value.item.price) * value.count);
+     }, 0);
+     
+
     return (
-        <>
+      <>
         <div>
-            <h1>You Have {count} Items In Your Cart</h1>
+          <h1>You Have {count} Items In Your Cart</h1>
+          <h1>Total Cost of Cart: ${costTotal.toFixed(2)}</h1>
         </div>
         <div>
-        {Object.values(cart).map(cartItem => {
+          {Object.values(cart).map((cartItem) => {
             return (
-              <ul>
-                <li key={cartItem.item.id}>{cartItem.item.name}</li>
+              <ul key={cartItem.item.id}>
+                <li>{cartItem.item.name}</li>
                 <li>
                   <Link to={`/items/${cartItem.item.id}`}>
                     <img
@@ -39,28 +45,43 @@ const Cart = () => {
                 </li>
                 <li>Price: ${cartItem.item.price}</li>
                 <button
-                onClick={
-                    (e) => {dispatch(cartAction.addItem(cartItem.item))}
-                }>+</button>
+                  onClick={(e) => {
+                    dispatch(cartAction.removeItem(cartItem.item));
+                  }}
+                >
+                  -
+                </button>
                 <li>Quantity: {cartItem.count}</li>
                 <button
-                onClick={
-                    (e) => {dispatch(cartAction.removeItem(cartItem.item))}
-                }>-</button>
+                  onClick={(e) => {
+                    dispatch(cartAction.addItem(cartItem.item));
+                  }}
+                >
+                  +
+                </button>
                 <button
-                onClick={
-                    (e) => {dispatch(cartAction.deleteItem(cartItem.item))}
-                }>Remove All</button>
+                  onClick={(e) => {
+                    dispatch(cartAction.deleteItem(cartItem.item));
+                  }}
+                >
+                  Remove All
+                </button>
               </ul>
             );
-        })}
+          })}
         </div>
         <div>
-        <button></button>
-        <button></button>
+          <button
+            onClick={(e) => {
+              dispatch(cartAction.empty());
+            }}
+          >
+            Empty Cart
+          </button>
+          <button>Purchase</button>
         </div>
-        </>
-    )
+      </>
+    );
 }
 
 export default Cart;

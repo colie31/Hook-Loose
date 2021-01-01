@@ -74,7 +74,8 @@ const CartReducer = (state = initialState, action) => {
             delete newState[action.item.id];
             return newState;
         case EMPTY:
-            return {};
+            newState = {};
+            return newState;
         default:
             return state;
     }

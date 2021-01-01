@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import BeautyStars from "beauty-stars";
 //css
 import './SingleItem.css'
+//componenets
+import Review from './review'
 
 
 //need to fetch inventory from database
@@ -14,6 +16,8 @@ import './SingleItem.css'
 const SingleItem = () => {
   const urlInformation = useParams();
   const itemId = parseInt(urlInformation.id);
+  const [showReview, setShowReview] = useState(false)
+  const [active, setActive] = useState(false)
 
   const loggedInUser = useSelector((state) => {
     return state.session.user;
@@ -66,7 +70,11 @@ const SingleItem = () => {
           <div className='descriptionBox'>
             <p>{item.description}</p>
           </div>
-          <div></div>
+          <button
+          onClick={
+            () => {setShowReview(!showReview)}
+          }>Reviews</button>
+          {showReview && <Review item={item} />}
         </div>
       )}
     </>

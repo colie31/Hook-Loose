@@ -38,16 +38,19 @@ function App() {
               <SignupFormPage />
             </Route>
             <Route exact path="/items/:id">
+              {!loggedInUser && <Redirect to="/" />}
               <SingleItem />
             </Route>
             <Route exact path="/items">
+              {!loggedInUser && <Redirect to="/" />}
               <ItemsPage />
             </Route>
             <Route exact path="/cart">
+              {!loggedInUser && <Redirect to="/" />}
               <Cart />
             </Route>
             <Route exact path="/">
-              {loggedInUser && <Redirect to='/items' />}
+              {loggedInUser && <Redirect to="/items" />}
               <HomePageInfo />
             </Route>
             <Route>{"404 page not found"}</Route>

@@ -7,7 +7,7 @@ import Search from '../../components/Search'
 // css
 import './Navigation.css';
 // pics
-import logo from '../../pics/logos/logo2.jpg'
+import logo from '../../pics/logos/logo3.png'
 
 
 function Navigation({ isLoaded }){
@@ -33,7 +33,11 @@ function Navigation({ isLoaded }){
         <ul>
           <li>
             <NavLink exact to="/">
-              <img alt="" src={logo} style={{ height: 200, width: 300 }}></img>
+              <img
+                alt=""
+                src={logo}
+                style={{ height: 200, width: 330, objectFit: "contain" }}
+              ></img>
             </NavLink>
           </li>
           <li>{isLoaded && sessionLinks}</li>
