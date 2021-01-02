@@ -13,6 +13,18 @@
     flex-direction: row;;
 }
 
+.soldContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.innerSold {
+    font-size: 30px;
+    padding-right: 50px;
+    
+}
+
+
 /* .imageContainer {
     padding-left: 0px;
 } */

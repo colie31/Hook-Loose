@@ -20,11 +20,13 @@ const SingleItem = () => {
   const urlInformation = useParams();
   const itemId = parseInt(urlInformation.id);
   const [showReview, setShowReview] = useState(false)
+  //this is for the add comment functionality
+  //not implemented yet :)
   const [active, setActive] = useState(false)
 
-  const loggedInUser = useSelector((state) => {
-    return state.session.user;
-  })
+  // const loggedInUser = useSelector((state) => {
+  //   return state.session.user;
+  // })
 
   const item = useSelector(state => {
     const allItems = state.inventory;
@@ -47,7 +49,7 @@ const SingleItem = () => {
   // }, []);
 
   //defensive coding
-  if (!loggedInUser) return null;
+  // if (!loggedInUser) return null;
 
   return (
     <>
@@ -58,43 +60,45 @@ const SingleItem = () => {
               src={item.url}
               style={{ height: 500, width: 520, objectFit: "contain" }}
             />
-            <BeautyStars
-              value={item.rating}
-              editable={false}
-              // onChange={}
-            />
-            <button
-              onClick={() => {
-                setShowReview(!showReview);
-              }}
-            >
-              Reviews
-            </button>
-            {showReview && <Review item={item} />}
           </div>
           <div className="infoContainer">
-            <div>
-              <div>Amount Sold: {item.amountSold}</div>
+            <div className="soldContainer">
+              <div className="innerSold">{item.amountSold} Sales</div>
+              <div className="innerSold">|</div>
+              <BeautyStars
+                value={item.rating}
+                editable={false}
+                className="innerSold"
+                // onChange={}
+              />
             </div>
             <div>
               <h1>{item.name}</h1>
             </div>
             <div>Price ${item.price}</div>
             <div>Quantity: {item.quantity}</div>
-            <div className="descriptionBox">
-              <p>{item.description}</p>
-            </div>
             <button
               className="addButton"
               onClick={(e) => {
-                dispatch(addItem(item));
+              dispatch(addItem(item));
               }}
             >
               Add To Cart
             </button>
+            <div className="descriptionBox">
+              <p>{item.description}</p>
+            </div>
           </div>
         </div>
       )}
+      <button
+        onClick={() => {
+          setShowReview(!showReview);
+        }}
+      >
+        Reviews
+      </button>
+      {showReview && <Review item={item} />}
     </>
   );
 };
