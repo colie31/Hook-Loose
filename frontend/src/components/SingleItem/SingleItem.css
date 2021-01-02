@@ -9,8 +9,8 @@
 }
 
 .container {
-    margin: auto;
-    width: 400px;
+    display: flex;
+    flex-direction: row;;
 }
 
 /* .imageContainer {

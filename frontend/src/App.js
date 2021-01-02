@@ -10,6 +10,7 @@ import HomePageInfo from "./components/HomePageInfo"
 import ItemsPage from './components/ItemsPage'
 import SingleItem from './components/SingleItem'
 import Cart from './components/Cart'
+import SearchPage from './components/Search/searchPage'
 
 import { fetchInventory } from './store/item'
 
@@ -36,6 +37,10 @@ function App() {
           <Switch>
             <Route exact path="/signup">
               <SignupFormPage />
+            </Route>
+            <Route exact path="/items/search">
+              {!loggedInUser && <Redirect to="/" />}
+              <SearchPage />
             </Route>
             <Route exact path="/items/:id">
               {!loggedInUser && <Redirect to="/" />}

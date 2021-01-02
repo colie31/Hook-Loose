@@ -6,6 +6,8 @@ import BeautyStars from "beauty-stars";
 import './SingleItem.css'
 //componenets
 import Review from './review'
+//actions
+import { addItem } from "../../store/cart";
 
 
 //need to fetch inventory from database
@@ -14,6 +16,7 @@ import Review from './review'
 //remember buttons per item: view, add to cart
 
 const SingleItem = () => {
+  const dispatch = useDispatch();
   const urlInformation = useParams();
   const itemId = parseInt(urlInformation.id);
   const [showReview, setShowReview] = useState(false)
@@ -50,31 +53,46 @@ const SingleItem = () => {
     <>
       {item && (
         <div className="container">
-          <div>
-            <h1>{item.name}</h1>
-          </div>
           <div className="imageContainer">
             <img
               src={item.url}
               style={{ height: 500, width: 520, objectFit: "contain" }}
             />
+            <BeautyStars
+              value={item.rating}
+              editable={false}
+              // onChange={}
+            />
+            <button
+              onClick={() => {
+                setShowReview(!showReview);
+              }}
+            >
+              Reviews
+            </button>
+            {showReview && <Review item={item} />}
           </div>
-          <BeautyStars
-            value={item.rating}
-            editable={false}
-            // onChange={}
-          />
-          <div>Amount Sold: {item.amountSold}</div>
-          <div>Price ${item.price}</div>
-          <div>Quantity: {item.quantity}</div>
-          <div className='descriptionBox'>
-            <p>{item.description}</p>
+          <div className="infoContainer">
+            <div>
+              <div>Amount Sold: {item.amountSold}</div>
+            </div>
+            <div>
+              <h1>{item.name}</h1>
+            </div>
+            <div>Price ${item.price}</div>
+            <div>Quantity: {item.quantity}</div>
+            <div className="descriptionBox">
+              <p>{item.description}</p>
+            </div>
+            <button
+              className="addButton"
+              onClick={(e) => {
+                dispatch(addItem(item));
+              }}
+            >
+              Add To Cart
+            </button>
           </div>
-          <button
-          onClick={
-            () => {setShowReview(!showReview)}
-          }>Reviews</button>
-          {showReview && <Review item={item} />}
         </div>
       )}
     </>
