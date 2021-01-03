@@ -1,5 +1,7 @@
 import React from 'react'
 import ItemsPage from '../ItemsPage';
+import BeautyStars from "beauty-stars";
+import './SingleItem.css'
 
 const Review = ({ item }) => {
     console.log(item)
@@ -13,11 +15,21 @@ const Review = ({ item }) => {
         <>
         {reviews.map(anItem => {
             return (
-                <div key={anItem.userId}>
-                <h4>{anItem.User.username}</h4>
-                <h1></h1>
+              <div 
+              key={anItem.userId}
+              className='commentContainer'>
+                <div className='user'>
+                    <h4>{anItem.User.username} says:</h4>
+                    <BeautyStars
+                    value={item.rating}
+                    editable={false}
+                    className="innerSold"
+                    // onChange={}
+                    />
                 </div>
-            )
+                <h1>"{anItem.comment}"</h1>
+              </div>
+            );
         })}
         </>
     } else {

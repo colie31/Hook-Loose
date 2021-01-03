@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux'
 import './Cart.css'
 //actions
 import * as cartAction from '../../store/cart'
+//thunk
+import { purchase } from '../../store/cart'
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -78,7 +80,10 @@ const Cart = () => {
           >
             Empty Cart
           </button>
-          <button>Purchase</button>
+          <button
+          onClick={
+            (e) => {dispatch(purchase(cart))}
+          }>Purchase</button>
         </div>
       </>
     );

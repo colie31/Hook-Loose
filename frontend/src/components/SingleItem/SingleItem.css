@@ -19,9 +19,13 @@
 }
 
 .innerSold {
-    font-size: 30px;
+    font-size: 25px;
     padding-right: 50px;
     
+}
+
+.user {
+    width: 20%;
 }
 
 

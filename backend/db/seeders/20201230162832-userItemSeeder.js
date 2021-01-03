@@ -18,28 +18,24 @@ module.exports = {
        {
          userId: 1,
          itemId: 1,
-         bought: true,
          createdAt: new Date(),
          updatedAt: new Date(),
        },
        {
          userId: 1,
          itemId: 2,
-         bought: true,
          createdAt: new Date(),
          updatedAt: new Date(),
        },
        {
          userId: 2,
          itemId: 6,
-         bought: true,
          createdAt: new Date(),
          updatedAt: new Date(),
        },
        {
          userId: 3,
          itemId: 4,
-         bought: true,
          createdAt: new Date(),
          updatedAt: new Date(),
        },

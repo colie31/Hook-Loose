@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
-import empty from '../../store/cart'
+import { empty } from '../../store/cart'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -29,9 +29,13 @@ function ProfileButton({ user }) {
   const logout = async (e) => {
     e.preventDefault();
     await dispatch(sessionActions.logout())
-    dispatch(empty)
+    await dispatch(empty())
     history.push('/')
   };
+
+  const userItems = () => {
+    history.push('/purchases')
+  }
 
   return (
     <>
@@ -42,6 +46,9 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li>{user.username}</li>
           <li>{user.email}</li>
+          <li>
+            <button onClick={userItems}>Purchases and Reviews</button>
+          </li>
           <li>
             <button onClick={logout}>Log Out</button>
           </li>

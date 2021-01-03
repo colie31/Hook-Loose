@@ -51,11 +51,6 @@ function Navigation({ isLoaded }){
               <li>
                 <Link to="/cart">My Cart</Link>
               </li>
-              <li>
-                <Link to="/cart">
-                  <i className="material-icons">shopping_cart</i>
-                </Link>
-              </li>
             </>
           )}
         </ul>

@@ -36,10 +36,10 @@ router.get('/restore-user', restoreUser, (req, res) => {
 //   }
 // );
 
-router.post('/test', function (req, res) {
-  console.log("hi")
-  res.json({ requestBody: req.body });
-});
+// router.post('/test', function (req, res) {
+//   console.log("hi")
+//   res.json({ requestBody: req.body });
+// });
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);

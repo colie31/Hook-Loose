@@ -13,7 +13,7 @@ const Search = () => {
     return state.inventory
   })
 
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   const search = (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const Search = () => {
     const foundInventory = inventory.filter(item => {
       return re.test(item.name) || re.test(item.description);
     })
-    console.log('found', foundInventory)
+    
     dispatch(searchItems(foundInventory))
 
     setInput('');

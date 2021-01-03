@@ -31,7 +31,6 @@ const SingleItem = () => {
   const item = useSelector(state => {
     const allItems = state.inventory;
     return allItems.find((anItem)=> {
-        console.log(anItem.id)
         return anItem.id === itemId;
     })
   });

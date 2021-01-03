@@ -11,6 +11,7 @@ import ItemsPage from './components/ItemsPage'
 import SingleItem from './components/SingleItem'
 import Cart from './components/Cart'
 import SearchPage from './components/Search/searchPage'
+import UserPurchases from './components/UserPurchases'
 
 import { fetchInventory } from './store/item'
 
@@ -53,6 +54,10 @@ function App() {
             <Route exact path="/cart">
               {!loggedInUser && <Redirect to="/" />}
               <Cart />
+            </Route>
+            <Route exact path="/purchases">
+              {!loggedInUser && <Redirect to="/" />}
+              <UserPurchases />
             </Route>
             <Route exact path="/">
               {loggedInUser && <Redirect to="/items" />}

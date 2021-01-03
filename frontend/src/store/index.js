@@ -4,12 +4,14 @@ import session from './session'
 import inventory from './item'
 import cart from './cart'
 import searchItems from './search'
+import userPurchases from './userPurchases'
 
 const rootReducer = combineReducers({
   session,
   inventory,
   cart,
-  searchItems
+  searchItems,
+  userPurchases
 });
 
 let enhancer;

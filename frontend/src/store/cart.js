@@ -3,7 +3,8 @@
 //possibly a thunk action to fetch users items bought prior
 //this can be used to check if user had previously bought an item
 //and if they can leave a comment or not
-
+//fetch
+import { fetch } from './csrf'
 //action
 const ADD_ITEM = 'addAnItem/CART';
 const REMOVE_ITEM = 'removeAnItem/CART';
@@ -39,6 +40,25 @@ export const empty = () => {
 
 //thunks
 //add items to userItems
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+
+export const purchase = (cartItems) => async dispatch => {
+    console.log(cartItems)
+    if(isEmpty(cartItems)) return
+    const response = await fetch("/api/users/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartItems),
+    });
+
+    if (response.ok) {
+      dispatch(empty());
+    }
+}
 
 //reducer
 const initialState = {}
