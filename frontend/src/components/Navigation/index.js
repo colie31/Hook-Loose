@@ -10,8 +10,17 @@ import './Navigation.css';
 import logo from '../../pics/logos/logo3.png'
 
 
+
+
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
+   const cart = useSelector((state) => {
+     return state.cart;
+   });
+
+   let count = Object.values(cart).reduce((accumulator, value) => {
+     return accumulator + value.count;
+   }, 0);
 
   let sessionLinks;
   if (sessionUser) {
@@ -48,8 +57,8 @@ function Navigation({ isLoaded }){
               <li>
                 <Link to="/items">Shop</Link>
               </li>
-              <li>
-                <Link to="/cart">My Cart</Link>
+              <li id="cartLink">
+                <Link to="/cart">My Cart ({count})</Link>
               </li>
             </>
           )}

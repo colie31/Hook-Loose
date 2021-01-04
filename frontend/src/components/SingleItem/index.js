@@ -53,12 +53,20 @@ const SingleItem = () => {
   return (
     <>
       {item && (
-        <div className="container">
+        <div className="singleContainer">
           <div className="imageContainer">
             <img
               src={item.url}
               style={{ height: 500, width: 520, objectFit: "contain" }}
             />
+            <button
+              onClick={() => {
+                setShowReview(!showReview);
+              }}
+            >
+              Reviews
+            </button>
+            {showReview && <Review item={item} />}
           </div>
           <div className="infoContainer">
             <div className="soldContainer">
@@ -79,7 +87,7 @@ const SingleItem = () => {
             <button
               className="addButton"
               onClick={(e) => {
-              dispatch(addItem(item));
+                dispatch(addItem(item));
               }}
             >
               Add To Cart
@@ -90,14 +98,6 @@ const SingleItem = () => {
           </div>
         </div>
       )}
-      <button
-        onClick={() => {
-          setShowReview(!showReview);
-        }}
-      >
-        Reviews
-      </button>
-      {showReview && <Review item={item} />}
     </>
   );
 };

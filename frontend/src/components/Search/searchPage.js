@@ -2,6 +2,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItem } from '../../store/cart';
 import { Link } from 'react-router-dom';
+//css
+import './Search.css'
 
 const SearchPage = () => {
     const dispatch = useDispatch();
@@ -10,7 +12,7 @@ const SearchPage = () => {
     let display;
     if(foundItems.length) {
         display = (
-          <div>
+          <div className="searchContainer searchItems">
             {foundItems.map((item) => {
                 return (
                   <div key={item.id}>
@@ -47,7 +49,9 @@ const SearchPage = () => {
         ); 
     } else {
         display = (
+          <div className="searchContainer">
             <h1>Items Not Found</h1>
+          </div>
         )
     }
 

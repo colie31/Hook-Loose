@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setUserItems } from '../../store/userPurchases'
 //componenet
 import UserReview from './UserReview'
+//css
+import './UserPurchases.css'
 
 //useEffect to dispatch
 //dispatch a thunk function to grab users reviews
@@ -16,12 +18,13 @@ const UserPurchases = () => {
     
     const dispatch = useDispatch();
     useEffect(()=> {
-        dispatch(setUserItems());
+         dispatch(setUserItems());
     }, [])
 
     const theUser = useSelector(state => state.userPurchases)
-    console.log(theUser)
-    // const user = useSelector(state => state.session.user)
+    const theItems = theUser.Items
+    //
+    console.log(theItems)
     
 
     function isEmpty(obj) {
@@ -33,34 +36,36 @@ const UserPurchases = () => {
         display =  <h1>No Items Purchased</h1>
     } else {
         display = (
-            <>
-            <h1>Purchases and Reviews</h1>
-            {theUser.items.map(anItem => {
-                return (
-                  <div key={anItem.id}>
-                    <div>
-                      <img
-                        src={anItem.url}
-                        alt=""
-                        style={{
-                          height: 100,
-                          width: 120,
-                          objectFit: "contain",
-                        }}
-                      />
-                    </div>
-                    <div>{anItem.name}</div>
-                    <UserReview itemId={anItem.id}/>
+          <div className="mainContainer purchasedItems">
+            {theItems.map(item => {
+              return (
+                <div key={item.id} className="outerContainer">
+                  <div className="imageBlock" >
+                    <img
+                      style={{
+                        height: 100,
+                        width: 120,
+                        objectFit: "contain",
+                      }}
+                      src={item.url}
+                      alt=""
+                    />
                   </div>
-                );
+                  <div className="infoBlock">
+                    <div>{item.name}</div>
+                    <UserReview itemId={item.id} />
+                    <div>{item.name}</div>
+                  </div>
+                </div>
+              );
             })}
-            </>
-        )
+          </div>
+        );
     }
  
     return (
         <div>
-        {display}
+          {display}
         </div>
     )
 }

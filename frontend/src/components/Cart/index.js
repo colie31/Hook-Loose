@@ -26,15 +26,18 @@ const Cart = () => {
      
 
     return (
-      <>
-        <div>
-          <h1>You Have {count} Items In Your Cart</h1>
-          <h1>Total Cost of Cart: ${costTotal.toFixed(2)}</h1>
+      <div className="container">
+        <div className="cartInfo">
+          <div className="cartDiv">You Have {count} Items In Your Cart</div>
+          <div lassName="cartDiv">
+            Total Cost of Cart: ${costTotal.toFixed(2)}
+          </div>
         </div>
         <div>
-          {Object.values(cart).map((cartItem) => {
-            return (
-              <ul key={cartItem.item.id}>
+        {Object.values(cart).map((cartItem) => {
+          return (
+            <div className="outContainer">
+              <ul className="cartItems" key={cartItem.item.id}>
                 <li>{cartItem.item.name}</li>
                 <li>
                   <Link to={`/items/${cartItem.item.id}`}>
@@ -46,33 +49,43 @@ const Cart = () => {
                   </Link>
                 </li>
                 <li>Price: ${cartItem.item.price}</li>
-                <button
-                  onClick={(e) => {
-                    dispatch(cartAction.removeItem(cartItem.item));
-                  }}
-                >
-                  -
-                </button>
+                <div>
+                  <button
+                    className="itemButton"
+                    onClick={(e) => {
+                      dispatch(cartAction.removeItem(cartItem.item));
+                    }}
+                  >
+                    -
+                  </button>
+                </div>
                 <li>Quantity: {cartItem.count}</li>
-                <button
-                  onClick={(e) => {
-                    dispatch(cartAction.addItem(cartItem.item));
-                  }}
-                >
-                  +
-                </button>
-                <button
-                  onClick={(e) => {
-                    dispatch(cartAction.deleteItem(cartItem.item));
-                  }}
-                >
-                  Remove All
-                </button>
+                <div>
+                  <button
+                    className="itemButton"
+                    onClick={(e) => {
+                      dispatch(cartAction.addItem(cartItem.item));
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="itemButton"
+                    onClick={(e) => {
+                      dispatch(cartAction.deleteItem(cartItem.item));
+                    }}
+                  >
+                    Remove All
+                  </button>
+                </div>
               </ul>
-            );
+            </div>
+          );
           })}
         </div>
-        <div>
+        <div className="bottomButtons">
           <button
             onClick={(e) => {
               dispatch(cartAction.empty());
@@ -81,11 +94,14 @@ const Cart = () => {
             Empty Cart
           </button>
           <button
-          onClick={
-            (e) => {dispatch(purchase(cart))}
-          }>Purchase</button>
+            onClick={(e) => {
+              dispatch(purchase(cart));
+            }}
+          >
+            Purchase
+          </button>
         </div>
-      </>
+      </div>
     );
 }
 

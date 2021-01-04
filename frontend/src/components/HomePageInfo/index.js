@@ -9,7 +9,7 @@ const HomePageInfo = () => {
        <div className="homeBottom">
          <div>
            <h1 className="header">What is Hook Loose?</h1>
-           <div className="container">
+           <div className="boxContainer">
              <div className="displayBox">
                <h2>Unique Creations</h2>
                <p>

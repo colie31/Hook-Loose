@@ -1,0 +1,46 @@
+.container {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../../pics/backGroundImages/coolBackground.png');
+    /* background-size: cover; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.cartInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottomButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* .display {
+    display:flex;
+    flex-direction: column;
+} */
+
+.outContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: white solid 2px;
+    background-color: lightgray;
+    margin: 10px;
+    padding-top: 20px;
+    text-align: center;
+    height:fit-content;
+    width: 97%;
+}
+
+.cartItems {
+    display: flex;
+    flex-direction: row;
+}
+
+.itemButton {
+    margin: 15px;
+}

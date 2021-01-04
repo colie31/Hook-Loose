@@ -17,6 +17,7 @@ const Search = () => {
 
   const search = (e) => {
     e.preventDefault();
+    if(!input) return
     let searchWords = input.split(' ')
     let string = '' 
     searchWords.forEach(word => {
@@ -26,7 +27,7 @@ const Search = () => {
     console.log(re)
     //searching through inventory
     const foundInventory = inventory.filter(item => {
-      return re.test(item.name) || re.test(item.description);
+      return re.test(item.name);
     })
     
     dispatch(searchItems(foundInventory))

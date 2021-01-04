@@ -4,15 +4,15 @@
     background-image: url('../../pics/backGroundImages/coolBackground.png');
     /* background-size: cover; */
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    display: block;
-    
-}
-.header {
-    padding: 20px;
-    text-align: center
+    background-size: cover;
 }
 
-.container {
+.header {
+    padding: 20px;
+    text-align: center;
+}
+
+.boxContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;

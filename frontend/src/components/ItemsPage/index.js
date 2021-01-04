@@ -27,7 +27,7 @@ const ItemsPage = () => {
 
         return (
             <>
-            <div>
+            <div className='itemsContainer storeContainer'>
                 {inventory.map(item => {
                     return (
                       <div key={item.id}>
