@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, UserItem, Review } = require('../../db/models');
+const { User, UserItem, Review, Item } = require('../../db/models');
 
 const router = express.Router();
 
@@ -58,16 +58,17 @@ router.post('/cart', requireAuth, asyncHandler(async (req, res) => {
 
 // get user items and views there reviews
 router.get('/purchases', requireAuth, asyncHandler(async (req, res) => {
-  const user = req.user.id
+  const userId = req.user.id
   // const purchases = await User.findByPk(user, {
   //   include: [UserItem, Review]
   // } )
-  const purchases = await User.findAll({
-    include: [UserItem, Review],
+  const purchases = await User.findOne({
     where: {
-      userId: user,
-    }
+      id: userId
+    },
+    include: [Item, Review],
   });
+  
   res.json(purchases)
 }))
 

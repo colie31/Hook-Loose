@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import { empty } from '../../store/cart'
+import { remove } from '../../store/userPurchases'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function ProfileButton({ user }) {
     e.preventDefault();
     await dispatch(sessionActions.logout())
     await dispatch(empty())
+    await dispatch(remove())
     history.push('/')
   };
 

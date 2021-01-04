@@ -1,10 +1,12 @@
+
 .profile-dropdown {
   position: absolute;
 }
 
-/* .nav-wrapper {
-  
-} */
+.nav-wrapper {
+  height: 150px;
+  width: 100%;
+}
 
 ul {
   display: flex;

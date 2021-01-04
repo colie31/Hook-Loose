@@ -1,6 +1,10 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+//thunk
+import { setUserItems } from '../../store/userPurchases'
+//componenet
+import UserReview from './UserReview'
 
 //useEffect to dispatch
 //dispatch a thunk function to grab users reviews
@@ -9,36 +13,55 @@ import { useSelector, useDispatch } from 'react-redux'
 //display them in componenet
 
 const UserPurchases = () => {
-    const inventory = useSelector(state => state.inventory)
-    const user = useSelector(state => state.session.user)
+    
+    const dispatch = useDispatch();
+    useEffect(()=> {
+        dispatch(setUserItems());
+    }, [])
 
-    const items = [];
-    inventory.map(anItem => {
-        const itemUsers = anItem.Users;
-        if(itemUsers) {
-            itemUsers.map(anUser => {
-                if(anUser.id === user.id) {
-                    items.push(anItem)
-                }
-            })
-        }
-    })
+    const theUser = useSelector(state => state.userPurchases)
+    console.log(theUser)
+    // const user = useSelector(state => state.session.user)
+    
 
-    let display;
-    if(items.length) {
-        display = (
-            <h1>HELLO</h1>
-        )
-    } else {
-        display = <h1>You Have Not Purchased Anything</h1>
+    function isEmpty(obj) {
+      return Object.keys(obj).length === 0;
     }
-
-
-    console.log('items', items)
+    
+    let display;
+    if(isEmpty(theUser)) {
+        display =  <h1>No Items Purchased</h1>
+    } else {
+        display = (
+            <>
+            <h1>Purchases and Reviews</h1>
+            {theUser.items.map(anItem => {
+                return (
+                  <div key={anItem.id}>
+                    <div>
+                      <img
+                        src={anItem.url}
+                        alt=""
+                        style={{
+                          height: 100,
+                          width: 120,
+                          objectFit: "contain",
+                        }}
+                      />
+                    </div>
+                    <div>{anItem.name}</div>
+                    <UserReview itemId={anItem.id}/>
+                  </div>
+                );
+            })}
+            </>
+        )
+    }
+ 
     return (
-        <>
+        <div>
         {display}
-        </>
+        </div>
     )
 }
 

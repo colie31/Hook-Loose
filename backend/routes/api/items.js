@@ -14,14 +14,5 @@ router.get('/', asyncHandler( async (req, res) => {
     res.json(response);
 }));
 
-//for individul items
-// router.get('/:id', asyncHandler( async(req, res) => {
-//     //get id from params
-//     //include user, user reviews
-//     //may need to .parseInit()?
-//     //find item by id
-//     //return item id
-//     //reviews??
-// }))
 
 module.exports = router;
