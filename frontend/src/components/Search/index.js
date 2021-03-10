@@ -36,7 +36,6 @@ const Search = () => {
     history.push('/items/search')
   };
 
-
 return (
   <li>
     <form onSubmit={search}>
