@@ -1,14 +1,13 @@
 import { fetch } from './csrf.js'
 
 //action
-const REMOVE_FROM_INVENTORY = "removeAmount/inventory"
+// const REMOVE_FROM_INVENTORY = "removeAmount/inventory"
 const SET_INVENTORY = "populate/inventory"
 
 //action creator that produces object
-const removeInventory = () => ({
-    type: REMOVE_FROM_INVENTORY,
-    //payload?
-});
+// const removeInventory = () => ({
+//     type: REMOVE_FROM_INVENTORY,
+// });
 
 const setInventory = (inventory) => {
     return { 

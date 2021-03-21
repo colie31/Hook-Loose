@@ -19,10 +19,14 @@ li {
   list-style-type: none;
 }
 
-/* #cartLink::before {
-    background-color: lightblue;
-    border-right: 4px solid violet;
-    content: ;
-    margin-right: 4px;
-    padding-left: 4px;
-} */
+.nav-wrapper button {
+  width: 120px;
+  height: 30px;
+  margin: 0 10px;
+  border: gray;
+  border-radius: 2px;
+}
+
+.nav-wrapper button:hover {
+  background-color: plum;
+}

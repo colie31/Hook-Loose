@@ -3,11 +3,14 @@ import { useSelector } from 'react-redux';
 //componenets
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal'
+import DemoLogin from '../DemoLogin'
 import Search from '../../components/Search'
 // css
 import './Navigation.css';
 // pics
 import logo from '../../pics/logos/logo3.png'
+
 
 
 
@@ -30,8 +33,9 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
+        <DemoLogin />
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <SignupFormModal />
       </>
     );
   }
@@ -52,7 +56,7 @@ function Navigation({ isLoaded }){
           <li>{isLoaded && sessionLinks}</li>
           {sessionUser && (
             <>
-              {sessionUser && <h3>Welcome {sessionUser.username}</h3>}
+              <h3>Welcome {sessionUser.username}</h3>
               <Search />
               <li>
                 <Link to="/items">Shop</Link>

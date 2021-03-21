@@ -39,43 +39,43 @@ const HomePageInfo = () => {
          <div className="footer">
            <div className="footerItem">
              <h4>Shop</h4>
-             <Link>
+             <Link to="" >
                <p>Gift cards</p>
              </Link>
-             <Link>
+             <Link to="" >
                <p>Blog</p>
              </Link>
            </div>
            <div className="footerItem">
              <h4>Sell</h4>
-             <Link>
+             <Link to="" >
                <p>Forums</p>
              </Link>
-             <Link>
+             <Link to="" >
                <p>Affiliates</p>
              </Link>
            </div>
            <div className="footerItem">
              <h4>About</h4>
-             <Link>
+             <Link to="" >
                <p>Policies</p>
              </Link>
-             <Link>
+             <Link to="" >
                <p>Investors</p>
              </Link>
-             <Link>
+             <Link to="" >
                <p>Careers</p>
              </Link>
-             <Link>
+             <Link to="" >
                <p>Impact</p>
              </Link>
            </div>
            <div className="footerItem">
              <h4>Help</h4>
-             <Link>
+             <Link to="" >
                <p>Help Center</p>
              </Link>
-             <Link>
+             <Link to="" >
                <p>Privacy settings</p>
              </Link>
            </div>

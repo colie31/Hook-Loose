@@ -3,7 +3,7 @@
 // import { fetch } from './csrf'
 //actions
 const PREVIOUS_PURCHASES = 'setUsersPreviouslyBoughtItems/USERITEMS'
-const PREVIOUS_REVIEWS = "setUsersPreviouslyReviewedItems/USERITEMS";
+// const PREVIOUS_REVIEWS = "setUsersPreviouslyReviewedItems/USERITEMS";
 const REMOVE = "removeUsersPurchaseHistory/USERITEMS"
 //actions creator
 export const userItems = (data) => {

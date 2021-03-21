@@ -22,7 +22,7 @@ const SingleItem = () => {
   const [showReview, setShowReview] = useState(false)
   //this is for the add comment functionality
   //not implemented yet :)
-  const [active, setActive] = useState(false)
+  // const [active, setActive] = useState(false)
 
   // const loggedInUser = useSelector((state) => {
   //   return state.session.user;
@@ -56,6 +56,7 @@ const SingleItem = () => {
         <div className="singleContainer">
           <div className="imageContainer">
             <img
+              alt=""
               src={item.url}
               style={{ height: 500, width: 520, objectFit: "contain" }}
             />

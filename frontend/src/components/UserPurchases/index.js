@@ -19,7 +19,7 @@ const UserPurchases = () => {
     const dispatch = useDispatch();
     useEffect(()=> {
          dispatch(setUserItems());
-    }, [])
+    }, [dispatch])
 
     const theUser = useSelector(state => state.userPurchases)
     const theItems = theUser.Items

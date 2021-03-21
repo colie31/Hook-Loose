@@ -1,5 +1,5 @@
 import React from 'react'
-import ItemsPage from '../ItemsPage';
+// import ItemsPage from '../ItemsPage';
 import BeautyStars from "beauty-stars";
 import './SingleItem.css'
 
