@@ -13,3 +13,7 @@
     height: 300px;
     width: 400px;
 }
+
+body {
+    margin: 0;
+}
