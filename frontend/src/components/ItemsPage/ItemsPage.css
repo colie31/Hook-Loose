@@ -20,3 +20,15 @@
     grid-template: repeat(4, 1fr) / repeat(5, 1fr);
     grid-auto-flow: row;
 }
+
+.item {
+    display: flex;
+    flex-direction: column;
+    border: 2px gray solid;
+    background: white;
+    align-items: center;
+}
+
+.item > * {
+    margin: 10px;
+}
